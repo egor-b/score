@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1077726223978-ndtkvrdrr77lqa6mjkt4v026tcrm04r2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1077726223978-ndtkvrdrr77lqa6mjkt4v026tcrm04r2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB4Piqp3PtQ1-c8nPmCZIOsmB6FPLJW4mk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1077726223978</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.championsleague.scorecounter</string>
+	<key>PROJECT_ID</key>
+	<string>champions-league-ad112</string>
+	<key>STORAGE_BUCKET</key>
+	<string>champions-league-ad112.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1077726223978:ios:5459c1dbbfe6eaedc4b413</string>
+</dict>
+</plist>

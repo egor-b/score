@@ -10,10 +10,20 @@
 		9C3C564490888FF0810B5A5F /* Pods_scorecounter_scorecounterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A218C04039FC6651B013EE /* Pods_scorecounter_scorecounterUITests.framework */; };
 		C5560E96CAB229EC8DC88A18 /* Pods_scorecounterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D8CEFF2EEA61D476A32391 /* Pods_scorecounterTests.framework */; };
 		C9BA04D6E3E077D74544F34D /* Pods_scorecounter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3AC9EAEA5F9A6AB08D416C /* Pods_scorecounter.framework */; };
-		F17B51FA291EF9A300480FEE /* ScoreBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B51F9291EF9A300480FEE /* ScoreBoard.swift */; };
+		F17B52142920167200480FEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F17B52102920167200480FEE /* Assets.xcassets */; };
+		F17B52262920179800480FEE /* FirestoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52242920179800480FEE /* FirestoreDataManager.swift */; };
+		F17B52272920179800480FEE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52252920179800480FEE /* DataManager.swift */; };
+		F17B522D292017A600480FEE /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5228292017A400480FEE /* ScoreView.swift */; };
+		F17B522E292017A600480FEE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5229292017A500480FEE /* GameView.swift */; };
+		F17B522F292017A600480FEE /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B522B292017A600480FEE /* ScoreBoardView.swift */; };
+		F17B5230292017A600480FEE /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B522C292017A600480FEE /* MainTabView.swift */; };
+		F17B5234292017B400480FEE /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5231292017B300480FEE /* Team.swift */; };
+		F17B5235292017B400480FEE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5232292017B300480FEE /* Game.swift */; };
+		F17B5236292017B400480FEE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5233292017B400480FEE /* Player.swift */; };
+		F17B523829209E0C00480FEE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B523729209E0C00480FEE /* SettingsView.swift */; };
+		F17B523A2920A93C00480FEE /* GameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52392920A93C00480FEE /* GameHistory.swift */; };
+		F17B523C2920C31E00480FEE /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B523B2920C31E00480FEE /* TeamView.swift */; };
 		F18D5FB5291EF17D00899D84 /* scorecounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D5FB4291EF17D00899D84 /* scorecounterApp.swift */; };
-		F18D5FB7291EF17D00899D84 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D5FB6291EF17D00899D84 /* ContentView.swift */; };
-		F18D5FB9291EF17E00899D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18D5FB8291EF17E00899D84 /* Assets.xcassets */; };
 		F18D5FBC291EF17E00899D84 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18D5FBB291EF17E00899D84 /* Preview Assets.xcassets */; };
 		F18D5FC6291EF17E00899D84 /* scorecounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D5FC5291EF17E00899D84 /* scorecounterTests.swift */; };
 		F18D5FD0291EF17E00899D84 /* scorecounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D5FCF291EF17E00899D84 /* scorecounterUITests.swift */; };
@@ -48,11 +58,21 @@
 		8C983DF59145C7E737AED7D0 /* Pods-scorecounterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scorecounterTests.debug.xcconfig"; path = "Target Support Files/Pods-scorecounterTests/Pods-scorecounterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		95AA886EC8DA35CC81C07621 /* Pods-scorecounter-scorecounterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scorecounter-scorecounterUITests.release.xcconfig"; path = "Target Support Files/Pods-scorecounter-scorecounterUITests/Pods-scorecounter-scorecounterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AB93F6BB72C69CF402DA07D2 /* Pods-scorecounterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scorecounterTests.release.xcconfig"; path = "Target Support Files/Pods-scorecounterTests/Pods-scorecounterTests.release.xcconfig"; sourceTree = "<group>"; };
-		F17B51F9291EF9A300480FEE /* ScoreBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoard.swift; sourceTree = "<group>"; };
+		F17B52102920167200480FEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F17B52242920179800480FEE /* FirestoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreDataManager.swift; sourceTree = "<group>"; };
+		F17B52252920179800480FEE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		F17B5228292017A400480FEE /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		F17B5229292017A500480FEE /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		F17B522B292017A600480FEE /* ScoreBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
+		F17B522C292017A600480FEE /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		F17B5231292017B300480FEE /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		F17B5232292017B300480FEE /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		F17B5233292017B400480FEE /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F17B523729209E0C00480FEE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F17B52392920A93C00480FEE /* GameHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistory.swift; sourceTree = "<group>"; };
+		F17B523B2920C31E00480FEE /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
 		F18D5FB1291EF17D00899D84 /* scorecounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scorecounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18D5FB4291EF17D00899D84 /* scorecounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scorecounterApp.swift; sourceTree = "<group>"; };
-		F18D5FB6291EF17D00899D84 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F18D5FB8291EF17E00899D84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18D5FBB291EF17E00899D84 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F18D5FC1291EF17E00899D84 /* scorecounterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = scorecounterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18D5FC5291EF17E00899D84 /* scorecounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scorecounterTests.swift; sourceTree = "<group>"; };
@@ -115,12 +135,45 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F17B51F8291EF98700480FEE /* View */ = {
+		F17B52212920177000480FEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F17B51F9291EF9A300480FEE /* ScoreBoard.swift */,
+				F17B5232292017B300480FEE /* Game.swift */,
+				F17B5233292017B400480FEE /* Player.swift */,
+				F17B5231292017B300480FEE /* Team.swift */,
+				F17B52392920A93C00480FEE /* GameHistory.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F17B52222920177800480FEE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F17B522A292017A600480FEE /* Subview */,
+				F17B5229292017A500480FEE /* GameView.swift */,
+				F17B5228292017A400480FEE /* ScoreView.swift */,
+				F17B522C292017A600480FEE /* MainTabView.swift */,
+				F17B523729209E0C00480FEE /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F17B52232920178300480FEE /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				F17B52252920179800480FEE /* DataManager.swift */,
+				F17B52242920179800480FEE /* FirestoreDataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		F17B522A292017A600480FEE /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				F17B522B292017A600480FEE /* ScoreBoardView.swift */,
+				F17B523B2920C31E00480FEE /* TeamView.swift */,
+			);
+			path = Subview;
 			sourceTree = "<group>";
 		};
 		F18D5FA8291EF17D00899D84 = {
@@ -148,11 +201,12 @@
 		F18D5FB3291EF17D00899D84 /* scorecounter */ = {
 			isa = PBXGroup;
 			children = (
-				F17B51F8291EF98700480FEE /* View */,
+				F17B52232920178300480FEE /* DataManager */,
+				F17B52222920177800480FEE /* View */,
+				F17B52212920177000480FEE /* Model */,
+				F17B52102920167200480FEE /* Assets.xcassets */,
 				F18D5FE0291EF59200899D84 /* AppDelegate.swift */,
 				F18D5FB4291EF17D00899D84 /* scorecounterApp.swift */,
-				F18D5FB6291EF17D00899D84 /* ContentView.swift */,
-				F18D5FB8291EF17E00899D84 /* Assets.xcassets */,
 				F18D5FDE291EF54D00899D84 /* GoogleService-Info.plist */,
 				F18D5FBA291EF17E00899D84 /* Preview Content */,
 			);
@@ -294,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F18D5FBC291EF17E00899D84 /* Preview Assets.xcassets in Resources */,
-				F18D5FB9291EF17E00899D84 /* Assets.xcassets in Resources */,
+				F17B52142920167200480FEE /* Assets.xcassets in Resources */,
 				F18D5FDF291EF54D00899D84 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,9 +478,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F18D5FE1291EF59200899D84 /* AppDelegate.swift in Sources */,
-				F18D5FB7291EF17D00899D84 /* ContentView.swift in Sources */,
+				F17B52272920179800480FEE /* DataManager.swift in Sources */,
+				F17B52262920179800480FEE /* FirestoreDataManager.swift in Sources */,
+				F17B5236292017B400480FEE /* Player.swift in Sources */,
+				F17B523A2920A93C00480FEE /* GameHistory.swift in Sources */,
+				F17B523C2920C31E00480FEE /* TeamView.swift in Sources */,
 				F18D5FB5291EF17D00899D84 /* scorecounterApp.swift in Sources */,
-				F17B51FA291EF9A300480FEE /* ScoreBoard.swift in Sources */,
+				F17B522D292017A600480FEE /* ScoreView.swift in Sources */,
+				F17B5235292017B400480FEE /* Game.swift in Sources */,
+				F17B522F292017A600480FEE /* ScoreBoardView.swift in Sources */,
+				F17B5230292017A600480FEE /* MainTabView.swift in Sources */,
+				F17B523829209E0C00480FEE /* SettingsView.swift in Sources */,
+				F17B5234292017B400480FEE /* Team.swift in Sources */,
+				F17B522E292017A600480FEE /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,14 +15,23 @@
 		F17B52272920179800480FEE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52252920179800480FEE /* DataManager.swift */; };
 		F17B522D292017A600480FEE /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5228292017A400480FEE /* ScoreView.swift */; };
 		F17B522E292017A600480FEE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5229292017A500480FEE /* GameView.swift */; };
-		F17B522F292017A600480FEE /* ScoreBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B522B292017A600480FEE /* ScoreBoardView.swift */; };
 		F17B5230292017A600480FEE /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B522C292017A600480FEE /* MainTabView.swift */; };
 		F17B5234292017B400480FEE /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5231292017B300480FEE /* Team.swift */; };
 		F17B5235292017B400480FEE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5232292017B300480FEE /* Game.swift */; };
 		F17B5236292017B400480FEE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B5233292017B400480FEE /* Player.swift */; };
 		F17B523829209E0C00480FEE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B523729209E0C00480FEE /* SettingsView.swift */; };
 		F17B523A2920A93C00480FEE /* GameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52392920A93C00480FEE /* GameHistory.swift */; };
-		F17B523C2920C31E00480FEE /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B523B2920C31E00480FEE /* TeamView.swift */; };
+		F17B523C2920C31E00480FEE /* ScorePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B523B2920C31E00480FEE /* ScorePickerView.swift */; };
+		F17B523E29246F6400480FEE /* GamePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B523D29246F6400480FEE /* GamePickerView.swift */; };
+		F17B524C2931B68F00480FEE /* GameTeamInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B524B2931B68F00480FEE /* GameTeamInfoView.swift */; };
+		F17B524E2931C15100480FEE /* ScoreMiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B524D2931C15100480FEE /* ScoreMiddleView.swift */; };
+		F17B52502931D2C700480FEE /* TeamPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B524F2931D2C700480FEE /* TeamPickerView.swift */; };
+		F17B52522931D6B100480FEE /* IsMadeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52512931D6B100480FEE /* IsMadeView.swift */; };
+		F17B52542931D96F00480FEE /* IsAssistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52532931D96F00480FEE /* IsAssistView.swift */; };
+		F17B52562931DABC00480FEE /* AssistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52552931DABC00480FEE /* AssistView.swift */; };
+		F17B52592932628C00480FEE /* TeamEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B52582932628C00480FEE /* TeamEnum.swift */; };
+		F17B525B2932680E00480FEE /* GameHistoryEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B525A2932680E00480FEE /* GameHistoryEnum.swift */; };
+		F17B525D29326A3100480FEE /* Foul.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17B525C29326A3100480FEE /* Foul.swift */; };
 		F18D5FB5291EF17D00899D84 /* scorecounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D5FB4291EF17D00899D84 /* scorecounterApp.swift */; };
 		F18D5FBC291EF17E00899D84 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18D5FBB291EF17E00899D84 /* Preview Assets.xcassets */; };
 		F18D5FC6291EF17E00899D84 /* scorecounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D5FC5291EF17E00899D84 /* scorecounterTests.swift */; };
@@ -63,14 +72,23 @@
 		F17B52252920179800480FEE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F17B5228292017A400480FEE /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		F17B5229292017A500480FEE /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		F17B522B292017A600480FEE /* ScoreBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreBoardView.swift; sourceTree = "<group>"; };
 		F17B522C292017A600480FEE /* MainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		F17B5231292017B300480FEE /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		F17B5232292017B300480FEE /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		F17B5233292017B400480FEE /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		F17B523729209E0C00480FEE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F17B52392920A93C00480FEE /* GameHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistory.swift; sourceTree = "<group>"; };
-		F17B523B2920C31E00480FEE /* TeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		F17B523B2920C31E00480FEE /* ScorePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorePickerView.swift; sourceTree = "<group>"; };
+		F17B523D29246F6400480FEE /* GamePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePickerView.swift; sourceTree = "<group>"; };
+		F17B524B2931B68F00480FEE /* GameTeamInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTeamInfoView.swift; sourceTree = "<group>"; };
+		F17B524D2931C15100480FEE /* ScoreMiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreMiddleView.swift; sourceTree = "<group>"; };
+		F17B524F2931D2C700480FEE /* TeamPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamPickerView.swift; sourceTree = "<group>"; };
+		F17B52512931D6B100480FEE /* IsMadeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsMadeView.swift; sourceTree = "<group>"; };
+		F17B52532931D96F00480FEE /* IsAssistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsAssistView.swift; sourceTree = "<group>"; };
+		F17B52552931DABC00480FEE /* AssistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistView.swift; sourceTree = "<group>"; };
+		F17B52582932628C00480FEE /* TeamEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEnum.swift; sourceTree = "<group>"; };
+		F17B525A2932680E00480FEE /* GameHistoryEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistoryEnum.swift; sourceTree = "<group>"; };
+		F17B525C29326A3100480FEE /* Foul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foul.swift; sourceTree = "<group>"; };
 		F18D5FB1291EF17D00899D84 /* scorecounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scorecounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18D5FB4291EF17D00899D84 /* scorecounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scorecounterApp.swift; sourceTree = "<group>"; };
 		F18D5FBB291EF17E00899D84 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -138,10 +156,12 @@
 		F17B52212920177000480FEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F17B52572932627600480FEE /* enum */,
 				F17B5232292017B300480FEE /* Game.swift */,
 				F17B5233292017B400480FEE /* Player.swift */,
 				F17B5231292017B300480FEE /* Team.swift */,
 				F17B52392920A93C00480FEE /* GameHistory.swift */,
+				F17B525C29326A3100480FEE /* Foul.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,10 +190,25 @@
 		F17B522A292017A600480FEE /* Subview */ = {
 			isa = PBXGroup;
 			children = (
-				F17B522B292017A600480FEE /* ScoreBoardView.swift */,
-				F17B523B2920C31E00480FEE /* TeamView.swift */,
+				F17B523B2920C31E00480FEE /* ScorePickerView.swift */,
+				F17B523D29246F6400480FEE /* GamePickerView.swift */,
+				F17B524B2931B68F00480FEE /* GameTeamInfoView.swift */,
+				F17B524D2931C15100480FEE /* ScoreMiddleView.swift */,
+				F17B524F2931D2C700480FEE /* TeamPickerView.swift */,
+				F17B52512931D6B100480FEE /* IsMadeView.swift */,
+				F17B52532931D96F00480FEE /* IsAssistView.swift */,
+				F17B52552931DABC00480FEE /* AssistView.swift */,
 			);
 			path = Subview;
+			sourceTree = "<group>";
+		};
+		F17B52572932627600480FEE /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				F17B52582932628C00480FEE /* TeamEnum.swift */,
+				F17B525A2932680E00480FEE /* GameHistoryEnum.swift */,
+			);
+			path = enum;
 			sourceTree = "<group>";
 		};
 		F18D5FA8291EF17D00899D84 = {
@@ -478,15 +513,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				F18D5FE1291EF59200899D84 /* AppDelegate.swift in Sources */,
+				F17B52562931DABC00480FEE /* AssistView.swift in Sources */,
+				F17B52502931D2C700480FEE /* TeamPickerView.swift in Sources */,
 				F17B52272920179800480FEE /* DataManager.swift in Sources */,
 				F17B52262920179800480FEE /* FirestoreDataManager.swift in Sources */,
 				F17B5236292017B400480FEE /* Player.swift in Sources */,
+				F17B52522931D6B100480FEE /* IsMadeView.swift in Sources */,
+				F17B525D29326A3100480FEE /* Foul.swift in Sources */,
+				F17B525B2932680E00480FEE /* GameHistoryEnum.swift in Sources */,
 				F17B523A2920A93C00480FEE /* GameHistory.swift in Sources */,
-				F17B523C2920C31E00480FEE /* TeamView.swift in Sources */,
+				F17B523C2920C31E00480FEE /* ScorePickerView.swift in Sources */,
+				F17B52592932628C00480FEE /* TeamEnum.swift in Sources */,
 				F18D5FB5291EF17D00899D84 /* scorecounterApp.swift in Sources */,
+				F17B524E2931C15100480FEE /* ScoreMiddleView.swift in Sources */,
 				F17B522D292017A600480FEE /* ScoreView.swift in Sources */,
+				F17B52542931D96F00480FEE /* IsAssistView.swift in Sources */,
 				F17B5235292017B400480FEE /* Game.swift in Sources */,
-				F17B522F292017A600480FEE /* ScoreBoardView.swift in Sources */,
+				F17B524C2931B68F00480FEE /* GameTeamInfoView.swift in Sources */,
+				F17B523E29246F6400480FEE /* GamePickerView.swift in Sources */,
 				F17B5230292017A600480FEE /* MainTabView.swift in Sources */,
 				F17B523829209E0C00480FEE /* SettingsView.swift in Sources */,
 				F17B5234292017B400480FEE /* Team.swift in Sources */,
@@ -653,12 +697,13 @@
 				DEVELOPMENT_TEAM = 4NW94WU93C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Squad Scoring";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -684,12 +729,13 @@
 				DEVELOPMENT_TEAM = 4NW94WU93C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Squad Scoring";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

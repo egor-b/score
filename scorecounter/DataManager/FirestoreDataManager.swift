@@ -11,24 +11,95 @@ import FirebaseFirestore
 class FirestoreDataManager: ObservableObject {
     
     @Published private(set) var game = Game()
+    @Published var activeTeam = HomeAway.HOME
+    @Published private(set) var time: String = "12:00"
+    @Published private(set) var period = 1
+    @Published private(set) var isTimerOn = false
+    @Published private(set) var actionType = ""
+
+    private var dataManager = DataManager()
+    private let db = Firestore.firestore()
     
-    let db = Firestore.firestore()
+    private var ghRec = GameHistory()
+
+    private var timer = Timer()
+    private var counter = 720
     
-    func addScore(score: Int, team: Int, record: GameHistory) {
-        
-        if team == 1 {
-            game.teamOne.score += score
+    func setActionType(actionType: String) {
+        self.actionType = actionType
+    }
+    func addPoints(record: (GameHistoryEnum, String)) {
+                
+        if activeTeam == .HOME {
+            handlePoints(.HOME, (record))
         }
         
-        if team == 2 {
-            game.teamTwo.score += score
+        if activeTeam == .AWAY {
+            handlePoints(.AWAY, (record))
         }
-        
-        game.history.append(record)
-        addScore(game: game, date: "11-12-2022", time: "1000PM")
         
     }
     
+    func addFoul(record: (GameHistoryEnum, String)) {
+                
+        if activeTeam == HomeAway.HOME {
+            if record.0 == GameHistoryEnum.PLAYER {
+                let f = Foul(player: record.1, time: self.time)
+                game.home.foul.append(f)
+            }
+        }
+        
+        if activeTeam == HomeAway.AWAY {
+            if record.0 == GameHistoryEnum.PLAYER {
+                let f = Foul(player: record.1, time: self.time)
+                game.away.foul.append(f)
+            }
+        }
+        
+    }
+    
+    private func handlePoints(_ team: HomeAway, _ record: (GameHistoryEnum, String)) {
+        if ghRec.time.isEmpty {
+            ghRec = GameHistory(time: self.time, period: period)
+        }
+        
+        if record.0 == GameHistoryEnum.PLAYER {
+            ghRec.player = record.1
+        }
+        if record.0 == GameHistoryEnum.ASSTPLAYER {
+            if !record.1.isEmpty {
+                ghRec.asstPlayer = record.1
+            } else {
+                ghRec.asstPlayer = "-"
+            }
+            if team == .HOME {
+                game.home.history.append(ghRec)
+                game.home.score += ghRec.points
+            }
+            if team == .AWAY {
+                game.away.history.append(ghRec)
+                game.away.score += ghRec.points
+            }
+            ghRec = GameHistory()
+        }
+        if record.0 == GameHistoryEnum.POINTS {
+            if record.1 != "0" {
+                ghRec.points = Int(record.1) ?? 0
+            } else {
+                ghRec.points = 0
+                if team == .HOME {
+                    game.home.history.append(ghRec)
+                }
+                if team == .AWAY {
+                    game.away.history.append(ghRec)
+                }
+                ghRec = GameHistory()
+            }
+        }
+        print(game.home.history)
+    }
+    
+//    func getScore(team: HomeAway) -> 
     func addTeam(team: Team) {
         
         let data = buildTeam(team: team)
@@ -78,6 +149,21 @@ class FirestoreDataManager: ObservableObject {
         db.collection("team").document(team.name).setData(data)
     }
     
+    private func getRealtimeScore() {
+//        db.collection("game").document("11-12-2022").collection("Person").document("1000PM").setData(dataDescription)
+//            .addSnapshotListener { documentSnapshot, error in
+//              guard let document = documentSnapshot else {
+//                print("Error fetching document: \(error!)")
+//                return
+//              }
+//              guard let data = document.data() else {
+//                print("Document data was empty.")
+//                return
+//              }
+//              print("Current data: \(data)")
+//            }
+    }
+    
     private func buildTeam(team: Team) -> [String : Any] {
         return [
             "name" : team.name,
@@ -88,8 +174,9 @@ class FirestoreDataManager: ObservableObject {
     
     private func buildGame(game: Game) -> [String : Any] {
         return [
-            "teamOne" : buildTeam(team: game.teamOne),
-            "teamTwo" : buildTeam(team: game.teamTwo),
+            "home" : buildTeam(team: game.home),
+            "away" : buildTeam(team: game.away),
+//            "gameRecords" : buildHistoryRecord(records: game.history),
             "place" : game.place,
             "referee" : game.referee,
             "isScheduled" : game.isScheduled,
@@ -107,5 +194,58 @@ class FirestoreDataManager: ObservableObject {
             playersDict.append(t)
         }
         return playersDict
+    }
+    
+    private func buildHistoryRecord(records: [GameHistory]) -> [[String : Any]] {
+        var history = [[String : Any]]()
+        for record in records {
+            let t = [
+                "player" : record.player,
+                "time" : record.time,
+                "points" : record.points,
+                "period" : record.period
+            ] as [String : Any]
+            history.append(t)
+        }
+        return history
+    }
+    
+    
+    
+    private func convertSecondsToTime(second: Int) -> String {
+        let seconds = second % 60
+        let minutes = (second / 60) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    func isTimerValid() -> Bool {
+        return timer.isValid
+    }
+    
+    
+    func startGame() {
+        if !timer.isValid {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+            isTimerOn = timer.isValid
+        }
+    }
+    
+    func stopGame() {
+        timer.invalidate()
+        isTimerOn = timer.isValid
+    }
+    
+    @objc func timerAction() {
+        counter -= 1
+        time = convertSecondsToTime(second: counter)
+        if counter == 0 {
+            timer.invalidate()
+            counter = 720
+            if period != 4 {
+                period += 1
+            } else {
+                period = 1
+            }
+        }
     }
 }

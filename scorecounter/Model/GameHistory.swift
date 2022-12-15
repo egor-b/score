@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct GameHistory {
+struct GameHistory: Codable {
     
-    var player: String?
-    var team: String?
-    var time: String?
-    var points: Int?
-    var period: Int?
+    var player: String = ""
+    var asstPlayer: String = ""
+    var time: String = ""
+    var points: Int = 0
+    var period: Int = 0
     
 }

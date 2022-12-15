@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct ScoreView: View {
+    
+    @ObservedObject var firebaseDataManager: FirestoreDataManager
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            
+            List {
+                Section("Current game") {
+//                    ScoreBoardView(period: 1, game: firebaseDataManager.game)
+                }
+                Section ("Past games") {
+                    ForEach(0...5, id: \.self) { _ in
+                        NavigationLink(destination: Text("Game description")) {
+//                            ScoreBoardView()
+                        }.buttonStyle(PlainButtonStyle())
+                    }
+                }
+            }.navigationTitle(Text("Scoreboard"))
+        }
     }
 }
 
-struct ScoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        ScoreView()
-    }
-}
+//struct ScoreView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ScoreView()
+//    }
+//}

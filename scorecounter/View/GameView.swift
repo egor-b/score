@@ -9,161 +9,58 @@ import SwiftUI
 
 struct GameView: View {
     
-    @StateObject private var firebaseDataManager = FirestoreDataManager()
-    @StateObject private var dataManager = DataManager()
-    @State private var team = [Player]()
-    @State private var isActive = false
-    @State var player = ""
+    @ObservedObject var firebaseDataManager: FirestoreDataManager
+    @State private var isTeamPickerActive = false
+    @State private var isMade = false
+    @State private var isAssistActive = false
+    @State private var isAssistTeamActive = false
+    @State private var isShow = false
+//    @State private var isShowSchedule = false
+//    @State private var score = 0
     
     var body: some View {
-        ZStack {
-            VStack {
-                ScoreBoardView(period: 1, game: firebaseDataManager.game)
-                    .background(
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color.white)
-                            .shadow(color: .black.opacity(0.7), radius: 15)
-                    ).padding(.horizontal)
-                
-                Text(dataManager.timer)
-                    .font(.system(size: 60))
-                    .bold()
-                    .foregroundColor(.red)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .lineLimit(1)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding()
-                
-                HStack {
-                    Spacer()
-                    Button() {
-                        print("Start game")
-                    } label: {
-                        Text("Start")
-                            .font(.system(size: 25))
-                            .foregroundColor(.white)
-                            .bold()
-                    }
-                    .frame(width: 200,height: 50)
-                    .background(RoundedRectangle(cornerRadius: 20)
-                        .fill(.red))
-                    Spacer()
-                    Button() {
-                        print("End game")
-                    } label: {
-                        Text("End")
-                            .font(.system(size: 25))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 200,height: 50)
-                    .background(RoundedRectangle(cornerRadius: 20)
-                        .fill(.black))
-                    Spacer()
-                }
+        VStack {
+            HStack {
+                GameTeamInfoView(firebase: firebaseDataManager, team: .HOME)
+                    .padding(.vertical, 5)
                 Spacer()
-                HStack {
-                    VStack {
-                        
-                        Button() {
-                            team = firebaseDataManager.game.teamOne.players
-                            isActive.toggle()
-                            //                            firebaseDataManager.addScore(score: 2, team: 1, record: GameHistory())
-                        } label: {
-                            Text("2")
-                                .foregroundColor(.white)
-                                .font(.system(size: 30))
-                                .bold()
-                                .frame(width: 150, height: 150)
-                        }
-                        .frame(width: 150, height: 150)
-                        .background(.yellow)
-                        .sheet(isPresented: $isActive) {
-                            TeamView(player: [Player(name: "Player", lastName: "1", age: 3), Player(name: "Player", lastName: "2", age: 3), Player(name: "Player", lastName: "3", age: 3), Player(name: "Player", lastName: "4", age: 3), Player(name: "Player", lastName: "5", age: 3)])
-                        }
-                        
-                        HStack {
-                            Button() {
-                                team = firebaseDataManager.game.teamOne.players
-                                //                                firebaseDataManager.addScore(score: 3, team: 1, record: GameHistory())
-                            } label: {
-                                Text("3")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 30))
-                                    .bold()
-                                    .frame(width: 75, height: 75)
-                            }
-                            .frame(width: 75, height: 75)
-                            .background(.red)
-                            
-                            Button() {
-                                team = firebaseDataManager.game.teamOne.players
-                                //                                firebaseDataManager.addScore(score: 1, team: 1, record: GameHistory())
-                            } label: {
-                                Text("1")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 30))
-                                    .bold()
-                                    .frame(width: 75, height: 75)
-                            }
-                            .frame(width: 75, height: 75)
-                            .background(.black)
-                        }
-                    }.padding()
-                    Spacer()
-                    VStack {
-                        Button() {
-                            team = firebaseDataManager.game.teamTwo.players
-                            //                            firebaseDataManager.addScore(score: 2, team: 2, record: GameHistory())
-                        } label: {
-                            Text("2")
-                                .foregroundColor(.white)
-                                .font(.system(size: 30))
-                                .bold()
-                                .frame(width: 150, height: 150)
-                        }
-                        .frame(width: 150, height: 150)
-                        .background(.yellow)
-                        
-                        HStack {
-                            Button() {
-                                team = firebaseDataManager.game.teamTwo.players
-                                //                                firebaseDataManager.addScore(score: 1, team: 2, record: GameHistory())
-                            } label: {
-                                Text("1")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 30))
-                                    .bold()
-                                    .frame(width: 75, height: 75)
-                            }
-                            .frame(width: 75, height: 75)
-                            .background(.black)
-                            
-                            Button() {
-                                team = firebaseDataManager.game.teamTwo.players
-                                //                                firebaseDataManager.addScore(score: 3, team: 2, record: GameHistory())
-                            } label: {
-                                Text("3")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 30))
-                                    .bold()
-                                    .frame(width: 75, height: 75)
-                            }
-                            .frame(width: 75, height: 75)
-                            .background(.red)
-                        }
-                    }.padding()
-                }
+                ScoreMiddleView(firebase: firebaseDataManager)
                 Spacer()
+                GameTeamInfoView(firebase: firebaseDataManager, team: .AWAY)
+                    .padding(.trailing, 5)
+            }.overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color.black, lineWidth: 1)
+            )
+            .padding(10)
+            Spacer()
+            if isTeamPickerActive {
+                TeamPickerView(isTeamActive: $isTeamPickerActive, isMadeActive: $isMade, firebase: firebaseDataManager, team: .HOME)
+            } else if isMade {
+                IsMadeView(isMadeActive: $isMade, isAssistActive: $isAssistActive, firebase: firebaseDataManager)
+            } else if isAssistActive {
+                IsAssistView(isAssistActive: $isAssistActive, isAssistTeamActive: $isAssistTeamActive, firebase: firebaseDataManager)
+            } else if isAssistTeamActive {
+                AssistView(isAssistTeamActive: $isAssistTeamActive, firebase: firebaseDataManager)
+            } else {
+                ScorePickerView(isActive: $isTeamPickerActive, firebase: firebaseDataManager, team: .HOME)
+                Spacer()
+                ScorePickerView(isActive: $isTeamPickerActive, firebase: firebaseDataManager, team: .AWAY)
             }
-            .padding()
             
+            
+            if firebaseDataManager.actionType == "2P" || firebaseDataManager.actionType == "3P" {
+                
+            }
+            
+            Spacer()
         }
+        
     }
 }
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(firebaseDataManager: FirestoreDataManager())
     }
 }

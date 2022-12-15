@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    @StateObject private var firestoreDataManager = FirestoreDataManager()
+    
     var body: some View {
         TabView {
-            GameView()
+            GameView(firebaseDataManager: firestoreDataManager)
                 .tabItem {
                     Label("Game", systemImage: "figure.basketball")
                 }
-            ScoreView()
-                .tabItem {
-                    Label("Score", systemImage: "sportscourt")
-                }
+//            ScoreView(firebaseDataManager: firestoreDataManager)
+//                .tabItem {
+//                    Label("Score", systemImage: "sportscourt")
+//                }
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")

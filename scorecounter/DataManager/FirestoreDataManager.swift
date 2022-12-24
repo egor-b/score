@@ -16,6 +16,7 @@ class FirestoreDataManager: ObservableObject {
     @Published private(set) var period = 1
     @Published private(set) var isTimerOn = false
     @Published private(set) var actionType = ""
+    @Published var viewSwitcher = ViewSwitcher()
 
     private var dataManager = DataManager()
     private let db = Firestore.firestore()

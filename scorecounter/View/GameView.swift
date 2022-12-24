@@ -10,13 +10,6 @@ import SwiftUI
 struct GameView: View {
     
     @ObservedObject var firebaseDataManager: FirestoreDataManager
-    @State private var isTeamPickerActive = false
-    @State private var isMade = false
-    @State private var isAssistActive = false
-    @State private var isAssistTeamActive = false
-    @State private var isShow = false
-//    @State private var isShowSchedule = false
-//    @State private var score = 0
     
     var body: some View {
         VStack {
@@ -34,23 +27,52 @@ struct GameView: View {
             )
             .padding(10)
             Spacer()
-            if isTeamPickerActive {
-                TeamPickerView(isTeamActive: $isTeamPickerActive, isMadeActive: $isMade, firebase: firebaseDataManager, team: .HOME)
-            } else if isMade {
-                IsMadeView(isMadeActive: $isMade, isAssistActive: $isAssistActive, firebase: firebaseDataManager)
-            } else if isAssistActive {
-                IsAssistView(isAssistActive: $isAssistActive, isAssistTeamActive: $isAssistTeamActive, firebase: firebaseDataManager)
-            } else if isAssistTeamActive {
-                AssistView(isAssistTeamActive: $isAssistTeamActive, firebase: firebaseDataManager)
-            } else {
-                ScorePickerView(isActive: $isTeamPickerActive, firebase: firebaseDataManager, team: .HOME)
-                Spacer()
-                ScorePickerView(isActive: $isTeamPickerActive, firebase: firebaseDataManager, team: .AWAY)
+           
+            
+            
+            if firebaseDataManager.viewSwitcher.actionType == .TWO_POINTS || firebaseDataManager.viewSwitcher.actionType == .THREE_POINTS {
+                if firebaseDataManager.viewSwitcher.isShowTeam {
+                    TeamPickerView(firebase: firebaseDataManager)
+                } else if firebaseDataManager.viewSwitcher.isMade {
+                    IsMadeView(firebase: firebaseDataManager)
+                } else if firebaseDataManager.viewSwitcher.isAsst {
+                    IsAssistView(firebase: firebaseDataManager)
+                } else if firebaseDataManager.viewSwitcher.isAsstPlayer {
+                    AssistView(firebase: firebaseDataManager)
+                }
+            } else if firebaseDataManager.viewSwitcher.actionType == .FT {
+                if firebaseDataManager.viewSwitcher.isShowTeam {
+                    TeamPickerView(firebase: firebaseDataManager)
+                } else if firebaseDataManager.viewSwitcher.isMade {
+                    IsMadeView(firebase: firebaseDataManager)
+                }
+            } else if firebaseDataManager.viewSwitcher.actionType == .REB {
+                if firebaseDataManager.viewSwitcher.isShowTeam {
+                    TeamPickerView(firebase: firebaseDataManager)
+                } else if firebaseDataManager.viewSwitcher.isFfDef {
+                    ReboundView(firebase: firebaseDataManager)
+                }
+            } else if firebaseDataManager.viewSwitcher.actionType == .TO {
+                if firebaseDataManager.viewSwitcher.isShowTeam {
+                    TeamPickerView(firebase: firebaseDataManager)
+                }
+            } else if firebaseDataManager.viewSwitcher.actionType == .STL {
+                if firebaseDataManager.viewSwitcher.isShowTeam {
+                    TeamPickerView(firebase: firebaseDataManager)
+                } else if firebaseDataManager.viewSwitcher.isPlayerTo {
+                    OppositeTeamPickerView(firebase: firebaseDataManager)
+                }
+            } else if firebaseDataManager.viewSwitcher.actionType == .FOUL {
+                if firebaseDataManager.viewSwitcher.isShowTeam {
+                    TeamPickerView(firebase: firebaseDataManager)
+                } else if firebaseDataManager.viewSwitcher.isFoul {
+                    OppositeTeamPickerView(firebase: firebaseDataManager)
+                }
             }
-            
-            
-            if firebaseDataManager.actionType == "2P" || firebaseDataManager.actionType == "3P" {
-                
+            else {
+                ScorePickerView(isActive: $firebaseDataManager.viewSwitcher.isShowTeam, firebase: firebaseDataManager, team: .HOME)
+                Spacer()
+                ScorePickerView(isActive: $firebaseDataManager.viewSwitcher.isShowTeam, firebase: firebaseDataManager, team: .AWAY)
             }
             
             Spacer()

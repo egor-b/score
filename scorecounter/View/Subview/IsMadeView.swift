@@ -9,17 +9,20 @@ import SwiftUI
 
 struct IsMadeView: View {
     
-    @Binding var isMadeActive: Bool
-    @Binding var isAssistActive: Bool
-    
     @ObservedObject var firebase: FirestoreDataManager
 
     var body: some View {
         VStack {
             Spacer()
             Button() {
-                isMadeActive.toggle()
-                isAssistActive.toggle()
+                if firebase.viewSwitcher.actionType == .TWO_POINTS || firebase.viewSwitcher.actionType == .THREE_POINTS {
+                    firebase.viewSwitcher.isMade.toggle()
+                    firebase.viewSwitcher.isAsst.toggle()
+                } else {
+                    firebase.viewSwitcher.actionType = .NONE
+                    firebase.viewSwitcher.isMade.toggle()
+                }
+                
             } label: {
                 Text("Made")
                     .frame(width: UIScreen.main.bounds.width/2, height: 70)
@@ -28,7 +31,8 @@ struct IsMadeView: View {
             Spacer()
             Button() {
                 firebase.addPoints(record: (.POINTS, "0"))
-                isMadeActive.toggle()
+                firebase.viewSwitcher.actionType = .NONE
+                firebase.viewSwitcher.isMade.toggle()
             } label: {
                 Text("MISS")
                     .frame(width: UIScreen.main.bounds.width/2, height: 70)
@@ -41,6 +45,6 @@ struct IsMadeView: View {
 
 struct IsMadeView_Previews: PreviewProvider {
     static var previews: some View {
-        IsMadeView(isMadeActive: .constant(true), isAssistActive: .constant(false), firebase: FirestoreDataManager())
+        IsMadeView(firebase: FirestoreDataManager())
     }
 }

@@ -1,13 +1,13 @@
 //
-//  IsAssistView.swift
+//  ReboundView.swift
 //  scorecounter
 //
-//  Created by Egor Bryzgalov on 11/26/22.
+//  Created by Egor Bryzgalov on 12/24/22.
 //
 
 import SwiftUI
 
-struct IsAssistView: View {
+struct ReboundView: View {
     
     @ObservedObject var firebase: FirestoreDataManager
 
@@ -15,20 +15,20 @@ struct IsAssistView: View {
         VStack {
             Spacer()
             Button() {
-                firebase.viewSwitcher.isAsst.toggle()
-                firebase.viewSwitcher.isAsstPlayer.toggle()
+                firebase.viewSwitcher.actionType = .NONE
+                firebase.viewSwitcher.isFfDef.toggle()
+                
             } label: {
-                Text("ASST")
+                Text("OFF")
                     .frame(width: UIScreen.main.bounds.width/2, height: 70)
                     .border(.black)
             }
             Spacer()
             Button() {
-                firebase.addPoints(record: (GameHistoryEnum.ASSTPLAYER, ""))
                 firebase.viewSwitcher.actionType = .NONE
-                firebase.viewSwitcher.isAsst.toggle()
+                firebase.viewSwitcher.isFfDef.toggle()
             } label: {
-                Text("NO ASST")
+                Text("DEFF")
                     .frame(width: UIScreen.main.bounds.width/2, height: 70)
                     .border(.black)
             }
@@ -37,8 +37,8 @@ struct IsAssistView: View {
     }
 }
 
-struct IsAssistView_Previews: PreviewProvider {
+struct ReboundView_Previews: PreviewProvider {
     static var previews: some View {
-        IsAssistView(firebase: FirestoreDataManager())
+        ReboundView(firebase: FirestoreDataManager())
     }
 }

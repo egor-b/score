@@ -39,6 +39,11 @@
 		F18D5FD2291EF17E00899D84 /* scorecounterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D5FD1291EF17E00899D84 /* scorecounterUITestsLaunchTests.swift */; };
 		F18D5FDF291EF54D00899D84 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F18D5FDE291EF54D00899D84 /* GoogleService-Info.plist */; };
 		F18D5FE1291EF59200899D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18D5FE0291EF59200899D84 /* AppDelegate.swift */; };
+		F1DEBD262956B82700C8DB63 /* ViewSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DEBD252956B82700C8DB63 /* ViewSwitcher.swift */; };
+		F1DEBD282956C1A900C8DB63 /* ActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DEBD272956C1A900C8DB63 /* ActionType.swift */; };
+		F1DEBD2A2956C61A00C8DB63 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DEBD292956C61A00C8DB63 /* PlayerView.swift */; };
+		F1DEBD2C2956CB6500C8DB63 /* ReboundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DEBD2B2956CB6500C8DB63 /* ReboundView.swift */; };
+		F1DEBD2E29577A5A00C8DB63 /* OppositeTeamPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DEBD2D29577A5A00C8DB63 /* OppositeTeamPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +105,11 @@
 		F18D5FDE291EF54D00899D84 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F18D5FE0291EF59200899D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1D8CEFF2EEA61D476A32391 /* Pods_scorecounterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_scorecounterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1DEBD252956B82700C8DB63 /* ViewSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSwitcher.swift; sourceTree = "<group>"; };
+		F1DEBD272956C1A900C8DB63 /* ActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionType.swift; sourceTree = "<group>"; };
+		F1DEBD292956C61A00C8DB63 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		F1DEBD2B2956CB6500C8DB63 /* ReboundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReboundView.swift; sourceTree = "<group>"; };
+		F1DEBD2D29577A5A00C8DB63 /* OppositeTeamPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OppositeTeamPickerView.swift; path = scorecounter/View/Subview/OppositeTeamPickerView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +172,7 @@
 				F17B5231292017B300480FEE /* Team.swift */,
 				F17B52392920A93C00480FEE /* GameHistory.swift */,
 				F17B525C29326A3100480FEE /* Foul.swift */,
+				F1DEBD252956B82700C8DB63 /* ViewSwitcher.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,8 +207,11 @@
 				F17B524D2931C15100480FEE /* ScoreMiddleView.swift */,
 				F17B524F2931D2C700480FEE /* TeamPickerView.swift */,
 				F17B52512931D6B100480FEE /* IsMadeView.swift */,
+				F1DEBD2B2956CB6500C8DB63 /* ReboundView.swift */,
 				F17B52532931D96F00480FEE /* IsAssistView.swift */,
 				F17B52552931DABC00480FEE /* AssistView.swift */,
+				F1DEBD292956C61A00C8DB63 /* PlayerView.swift */,
+				F1DEBD2D29577A5A00C8DB63 /* OppositeTeamPickerView.swift */,
 			);
 			path = Subview;
 			sourceTree = "<group>";
@@ -207,6 +221,7 @@
 			children = (
 				F17B52582932628C00480FEE /* TeamEnum.swift */,
 				F17B525A2932680E00480FEE /* GameHistoryEnum.swift */,
+				F1DEBD272956C1A900C8DB63 /* ActionType.swift */,
 			);
 			path = enum;
 			sourceTree = "<group>";
@@ -514,14 +529,19 @@
 			files = (
 				F18D5FE1291EF59200899D84 /* AppDelegate.swift in Sources */,
 				F17B52562931DABC00480FEE /* AssistView.swift in Sources */,
+				F1DEBD282956C1A900C8DB63 /* ActionType.swift in Sources */,
 				F17B52502931D2C700480FEE /* TeamPickerView.swift in Sources */,
 				F17B52272920179800480FEE /* DataManager.swift in Sources */,
 				F17B52262920179800480FEE /* FirestoreDataManager.swift in Sources */,
 				F17B5236292017B400480FEE /* Player.swift in Sources */,
+				F1DEBD2A2956C61A00C8DB63 /* PlayerView.swift in Sources */,
 				F17B52522931D6B100480FEE /* IsMadeView.swift in Sources */,
 				F17B525D29326A3100480FEE /* Foul.swift in Sources */,
 				F17B525B2932680E00480FEE /* GameHistoryEnum.swift in Sources */,
+				F1DEBD262956B82700C8DB63 /* ViewSwitcher.swift in Sources */,
+				F1DEBD2C2956CB6500C8DB63 /* ReboundView.swift in Sources */,
 				F17B523A2920A93C00480FEE /* GameHistory.swift in Sources */,
+				F1DEBD2E29577A5A00C8DB63 /* OppositeTeamPickerView.swift in Sources */,
 				F17B523C2920C31E00480FEE /* ScorePickerView.swift in Sources */,
 				F17B52592932628C00480FEE /* TeamEnum.swift in Sources */,
 				F18D5FB5291EF17D00899D84 /* scorecounterApp.swift in Sources */,

@@ -33,7 +33,8 @@ struct ScorePickerView: View {
                         Button() {
                             firebase.activeTeam = team
                             firebase.addPoints(record: (GameHistoryEnum.POINTS, "2"))
-                            isActive.toggle()
+                            firebase.viewSwitcher.actionType = .TWO_POINTS
+                            firebase.viewSwitcher.isShowTeam.toggle()
                         } label: {
                             Text("2P")
                                 .foregroundColor(.black)
@@ -50,7 +51,8 @@ struct ScorePickerView: View {
                         Button() {
                             firebase.activeTeam = team
                             firebase.addPoints(record: (GameHistoryEnum.POINTS, "3"))
-                            isActive.toggle()
+                            firebase.viewSwitcher.actionType = .THREE_POINTS
+                            firebase.viewSwitcher.isShowTeam.toggle()
                         } label: {
                             Text("3P")
                                 .foregroundColor(.black)
@@ -65,9 +67,9 @@ struct ScorePickerView: View {
                         
                         Button() {
                             firebase.activeTeam = team
-                            firebase.setActionType(actionType: "FT")
                             firebase.addPoints(record: (GameHistoryEnum.POINTS, "1"))
-                            isActive.toggle()
+                            firebase.viewSwitcher.actionType = .FT
+                            firebase.viewSwitcher.isShowTeam.toggle()
                         } label: {
                             Text("FT")
                                 .foregroundColor(.black)
@@ -84,9 +86,8 @@ struct ScorePickerView: View {
                     HStack {
                         Button() {
                             firebase.activeTeam = team
-                            firebase.setActionType(actionType: "REB")
-
-                            isActive.toggle()
+                            firebase.viewSwitcher.actionType = .REB
+                            firebase.viewSwitcher.isShowTeam.toggle()
                         } label: {
                             Text("REB")
                                 .foregroundColor(.black)
@@ -101,9 +102,8 @@ struct ScorePickerView: View {
                         
                         Button() {
                             firebase.activeTeam = team
-                            firebase.setActionType(actionType: "TO")
-
-                            isActive.toggle()
+                            firebase.viewSwitcher.actionType = .TO
+                            firebase.viewSwitcher.isShowTeam.toggle()
                         } label: {
                             Text("TO")
                                 .foregroundColor(.black)
@@ -118,9 +118,8 @@ struct ScorePickerView: View {
                         
                         Button() {
                             firebase.activeTeam = team
-                            firebase.setActionType(actionType: "STL")
-
-                            isActive.toggle()
+                            firebase.viewSwitcher.actionType = .STL
+                            firebase.viewSwitcher.isShowTeam.toggle()
                         } label: {
                             Text("STL")
                                 .foregroundColor(.black)
@@ -136,9 +135,9 @@ struct ScorePickerView: View {
                 }.padding(.horizontal)
                 Button() {
                     firebase.activeTeam = team
-                    firebase.setActionType(actionType: "FOUL")
+                    firebase.viewSwitcher.actionType = .FOUL
 
-                    isActive.toggle()
+                    firebase.viewSwitcher.isShowTeam.toggle()
                 } label: {
                     Text("FOUL")
                         .rotationEffect(.degrees(-90))

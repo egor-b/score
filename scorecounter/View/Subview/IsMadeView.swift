@@ -19,6 +19,7 @@ struct IsMadeView: View {
                     firebase.viewSwitcher.isMade.toggle()
                     firebase.viewSwitcher.isAsst.toggle()
                 } else {
+                    firebase.commitScore()
                     firebase.viewSwitcher.actionType = .NONE
                     firebase.viewSwitcher.isMade.toggle()
                 }

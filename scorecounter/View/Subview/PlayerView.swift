@@ -16,6 +16,7 @@ struct PlayerView: View {
         Button() {
             firebase.addPoints(record: (GameHistoryEnum.PLAYER, player))
             if firebase.viewSwitcher.actionType == .TO {
+                firebase.madeTurnover()
                 firebase.viewSwitcher.actionType = .NONE
                 firebase.viewSwitcher.isShowTeam.toggle()
             } else if firebase.viewSwitcher.actionType == .REB {

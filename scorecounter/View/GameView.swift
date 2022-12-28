@@ -32,7 +32,7 @@ struct GameView: View {
             
             if firebaseDataManager.viewSwitcher.actionType == .TWO_POINTS || firebaseDataManager.viewSwitcher.actionType == .THREE_POINTS {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
-                    TeamPickerView(firebase: firebaseDataManager)
+                    TeamPickerView(firebase: firebaseDataManager, title: "Team Players")
                 } else if firebaseDataManager.viewSwitcher.isMade {
                     IsMadeView(firebase: firebaseDataManager)
                 } else if firebaseDataManager.viewSwitcher.isAsst {
@@ -42,19 +42,19 @@ struct GameView: View {
                 }
             } else if firebaseDataManager.viewSwitcher.actionType == .FT {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
-                    TeamPickerView(firebase: firebaseDataManager)
+                    TeamPickerView(firebase: firebaseDataManager, title: "Team Players")
                 } else if firebaseDataManager.viewSwitcher.isMade {
                     IsMadeView(firebase: firebaseDataManager)
                 }
             } else if firebaseDataManager.viewSwitcher.actionType == .REB {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
-                    TeamPickerView(firebase: firebaseDataManager)
+                    TeamPickerView(firebase: firebaseDataManager, title: "Who made Rebound")
                 } else if firebaseDataManager.viewSwitcher.isFfDef {
                     ReboundView(firebase: firebaseDataManager)
                 }
             } else if firebaseDataManager.viewSwitcher.actionType == .TO {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
-                    TeamPickerView(firebase: firebaseDataManager)
+                    TeamPickerView(firebase: firebaseDataManager, title: "Wha made Turnover")
                 }
             } else if firebaseDataManager.viewSwitcher.actionType == .STL {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
@@ -64,7 +64,7 @@ struct GameView: View {
                 }
             } else if firebaseDataManager.viewSwitcher.actionType == .FOUL {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
-                    TeamPickerView(firebase: firebaseDataManager)
+                    TeamPickerView(firebase: firebaseDataManager, title: "Wha made steal")
                 } else if firebaseDataManager.viewSwitcher.isFoul {
                     OppositeTeamPickerView(firebase: firebaseDataManager)
                 }

@@ -12,5 +12,8 @@ enum GameHistoryEnum {
     case PLAYER
     case ASSTPLAYER
     case POINTS
+    case OFF
+    case DEFF
+    case TURNOVER
     
 }

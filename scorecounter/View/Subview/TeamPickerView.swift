@@ -10,10 +10,11 @@ import SwiftUI
 struct TeamPickerView: View {
     
     @ObservedObject var firebase: FirestoreDataManager
-
+    @State var title = ""
+    
     var body: some View {
         VStack {
-            Text("Team Players")
+            Text(title)
                 .padding(10)
                 .frame(width: UIScreen.main.bounds.width/1.5)
                 .background(.gray)

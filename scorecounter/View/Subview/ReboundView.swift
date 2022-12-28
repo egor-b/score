@@ -15,6 +15,7 @@ struct ReboundView: View {
         VStack {
             Spacer()
             Button() {
+                firebase.madeRebound(record: .OFF)
                 firebase.viewSwitcher.actionType = .NONE
                 firebase.viewSwitcher.isFfDef.toggle()
                 
@@ -25,6 +26,7 @@ struct ReboundView: View {
             }
             Spacer()
             Button() {
+                firebase.madeRebound(record: .DEFF)
                 firebase.viewSwitcher.actionType = .NONE
                 firebase.viewSwitcher.isFfDef.toggle()
             } label: {

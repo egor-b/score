@@ -14,5 +14,8 @@ struct GameHistory: Codable {
     var time: String = ""
     var points: Int = 0
     var period: Int = 0
+    var off = false
+    var deff = false
+    var turnover = false
     
 }

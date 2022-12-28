@@ -26,9 +26,6 @@ class FirestoreDataManager: ObservableObject {
     private var timer = Timer()
     private var counter = 720
     
-    func setActionType(actionType: String) {
-        self.actionType = actionType
-    }
     func addPoints(record: (GameHistoryEnum, String)) {
                 
         if activeTeam == .HOME {
@@ -37,24 +34,6 @@ class FirestoreDataManager: ObservableObject {
         
         if activeTeam == .AWAY {
             handlePoints(.AWAY, (record))
-        }
-        
-    }
-    
-    func addFoul(record: (GameHistoryEnum, String)) {
-                
-        if activeTeam == HomeAway.HOME {
-            if record.0 == GameHistoryEnum.PLAYER {
-                let f = Foul(player: record.1, time: self.time)
-                game.home.foul.append(f)
-            }
-        }
-        
-        if activeTeam == HomeAway.AWAY {
-            if record.0 == GameHistoryEnum.PLAYER {
-                let f = Foul(player: record.1, time: self.time)
-                game.away.foul.append(f)
-            }
         }
         
     }
@@ -73,15 +52,7 @@ class FirestoreDataManager: ObservableObject {
             } else {
                 ghRec.asstPlayer = "-"
             }
-            if team == .HOME {
-                game.home.history.append(ghRec)
-                game.home.score += ghRec.points
-            }
-            if team == .AWAY {
-                game.away.history.append(ghRec)
-                game.away.score += ghRec.points
-            }
-            ghRec = GameHistory()
+            commitScore()
         }
         if record.0 == GameHistoryEnum.POINTS {
             if record.1 != "0" {
@@ -99,6 +70,39 @@ class FirestoreDataManager: ObservableObject {
         }
         print(game.home.history)
     }
+    
+    func commitScore() {
+        if activeTeam == .HOME {
+            game.home.history.append(ghRec)
+            game.home.score += ghRec.points
+        }
+        if activeTeam == .AWAY {
+            game.away.history.append(ghRec)
+            game.away.score += ghRec.points
+        }
+        ghRec = GameHistory()
+    }
+    
+    func madeRebound(record: GameHistoryEnum) {
+        if record == GameHistoryEnum.OFF {
+            ghRec.off = true
+        }
+        if record == GameHistoryEnum.DEFF {
+            ghRec.deff = true
+        }
+        commitScore()
+        print(game.home.history)
+        ghRec = GameHistory()
+    }
+    
+    func madeTurnover() {
+        ghRec.turnover = true
+        commitScore()
+        print(game.home.history)
+        ghRec = GameHistory()
+    }
+    
+    
     
 //    func getScore(team: HomeAway) -> 
     func addTeam(team: Team) {

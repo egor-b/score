@@ -18,6 +18,7 @@ class FirestoreDataManager: ObservableObject {
     @Published private(set) var actionType = ""
     @Published var viewSwitcher = ViewSwitcher()
 
+    private var gameId = ""
     private var dataManager = DataManager()
     private let db = Firestore.firestore()
     
@@ -80,6 +81,7 @@ class FirestoreDataManager: ObservableObject {
             game.away.history.append(ghRec)
             game.away.score += ghRec.points
         }
+        addRecord()
         ghRec = GameHistory()
     }
     
@@ -91,30 +93,37 @@ class FirestoreDataManager: ObservableObject {
             ghRec.deff = true
         }
         commitScore()
-        print(game.home.history)
         ghRec = GameHistory()
     }
     
     func madeTurnover() {
         ghRec.turnover = true
         commitScore()
-        print(game.home.history)
         ghRec = GameHistory()
     }
     
-    
-    
-//    func getScore(team: HomeAway) -> 
-    func addTeam(team: Team) {
-        
-        let data = buildTeam(team: team)
-        db.collection("team").document(team.name).setData(data)
-        
+    func madeSteal(_ record: (GameHistoryEnum, String)) {
+        if record.0 == GameHistoryEnum.TURNOVERPLAYER {
+            ghRec.turnoverPlayer = record.1
+        }
+        commitScore()
+        ghRec = GameHistory()
     }
     
-    private func addScore(game: Game, date: String, time: String) {
+    func madeFoul(_ record: (GameHistoryEnum, String)) {
+        if record.0 == GameHistoryEnum.FOULEDPLAYER {
+            ghRec.fouledPlaeyr = record.1
+        }
+        commitScore()
+        ghRec = GameHistory()
+    }
+    
+    private func addRecord() {
+        if gameId.isEmpty {
+            gameId = db.collection("game").document().documentID
+        }
         let data = buildGame(game: game)
-        db.collection("game").document(date).collection(game.referee).document(time).setData(data)
+        db.collection("game").document(gameId).setData(data)
     }
     
     func startGame(game: Game, date: String, time: String) {
@@ -143,45 +152,12 @@ class FirestoreDataManager: ObservableObject {
         db.collection("schedule").document(date).collection(game.referee).document(time).updateData(data)
     }
     
-    func archiveGame(game: Game, date: String) {
-        
-//        db.collection("archive").document(date).setData(data)
-        
-    }
-    
-    func createTeam(team: Team) {
-        let data = buildTeam(team: team)
-        db.collection("team").document(team.name).setData(data)
-    }
-    
-    private func getRealtimeScore() {
-//        db.collection("game").document("11-12-2022").collection("Person").document("1000PM").setData(dataDescription)
-//            .addSnapshotListener { documentSnapshot, error in
-//              guard let document = documentSnapshot else {
-//                print("Error fetching document: \(error!)")
-//                return
-//              }
-//              guard let data = document.data() else {
-//                print("Document data was empty.")
-//                return
-//              }
-//              print("Current data: \(data)")
-//            }
-    }
-    
-    private func buildTeam(team: Team) -> [String : Any] {
-        return [
-            "name" : team.name,
-            "score" : team.score,
-            "players" : buildPlayer(players: team.players)
-        ]
-    }
-    
     private func buildGame(game: Game) -> [String : Any] {
         return [
-            "home" : buildTeam(team: game.home),
-            "away" : buildTeam(team: game.away),
-//            "gameRecords" : buildHistoryRecord(records: game.history),
+            "homeTeam" : game.home.name,
+            "awayTeam" : game.away.name,
+            "homeRecords" : buildHistoryRecord(records: game.home.history),
+            "awayRecords" : buildHistoryRecord(records: game.away.history),
             "place" : game.place,
             "referee" : game.referee,
             "isScheduled" : game.isScheduled,
@@ -208,7 +184,13 @@ class FirestoreDataManager: ObservableObject {
                 "player" : record.player,
                 "time" : record.time,
                 "points" : record.points,
-                "period" : record.period
+                "period" : record.period,
+                "off" : record.off,
+                "deff" : record.deff,
+                "turnover" : record.turnover,
+                "fouledPlaeyr" : record.fouledPlaeyr,
+                "turnoverPlayer" : record.turnoverPlayer,
+                "asstPlayer" : record.asstPlayer
             ] as [String : Any]
             history.append(t)
         }

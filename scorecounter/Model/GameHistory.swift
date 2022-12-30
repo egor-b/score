@@ -17,5 +17,7 @@ struct GameHistory: Codable {
     var off = false
     var deff = false
     var turnover = false
+    var fouledPlaeyr = ""
+    var turnoverPlayer = ""
     
 }

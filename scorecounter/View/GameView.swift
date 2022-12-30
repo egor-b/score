@@ -54,19 +54,19 @@ struct GameView: View {
                 }
             } else if firebaseDataManager.viewSwitcher.actionType == .TO {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
-                    TeamPickerView(firebase: firebaseDataManager, title: "Wha made Turnover")
+                    TeamPickerView(firebase: firebaseDataManager, title: "Who made Turnover")
                 }
             } else if firebaseDataManager.viewSwitcher.actionType == .STL {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
-                    TeamPickerView(firebase: firebaseDataManager)
+                    TeamPickerView(firebase: firebaseDataManager, title: "Who made steal")
                 } else if firebaseDataManager.viewSwitcher.isPlayerTo {
-                    OppositeTeamPickerView(firebase: firebaseDataManager)
+                    OppositeTeamPickerView(firebase: firebaseDataManager, title: "Who made the Turnover")
                 }
             } else if firebaseDataManager.viewSwitcher.actionType == .FOUL {
                 if firebaseDataManager.viewSwitcher.isShowTeam {
-                    TeamPickerView(firebase: firebaseDataManager, title: "Wha made steal")
+                    TeamPickerView(firebase: firebaseDataManager, title: "Who fouled")
                 } else if firebaseDataManager.viewSwitcher.isFoul {
-                    OppositeTeamPickerView(firebase: firebaseDataManager)
+                    OppositeTeamPickerView(firebase: firebaseDataManager, title: "Who got fouled")
                 }
             }
             else {

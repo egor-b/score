@@ -11,8 +11,7 @@ struct Team: Codable {
     
     var name: String = ""
     var score: Int = 0
-    var players = [Player]()
+//    var players = [Player]()
     var history = [GameHistory]()
-    var foul = [Foul]()
-
+//
 }

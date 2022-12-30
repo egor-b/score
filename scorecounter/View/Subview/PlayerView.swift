@@ -24,9 +24,7 @@ struct PlayerView: View {
                 firebase.viewSwitcher.isFfDef.toggle()
             } else if firebase.viewSwitcher.actionType == .STL {
                 firebase.viewSwitcher.isPlayerTo.toggle()
-                print(firebase.viewSwitcher.isPlayerTo)
                 firebase.viewSwitcher.isShowTeam.toggle()
-                print(firebase.viewSwitcher.isShowTeam)
             } else if firebase.viewSwitcher.actionType == .FOUL {
                 firebase.viewSwitcher.isFoul.toggle()
                 firebase.viewSwitcher.isShowTeam.toggle()

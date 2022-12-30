@@ -113,6 +113,13 @@ class FirestoreDataManager: ObservableObject {
     func madeFoul(_ record: (GameHistoryEnum, String)) {
         if record.0 == GameHistoryEnum.FOULEDPLAYER {
             ghRec.fouledPlaeyr = record.1
+            if activeTeam == .HOME {
+                game.home.fouls += 1
+            }
+            if activeTeam == .AWAY {
+                game.away.fouls += 1
+
+            }
         }
         commitScore()
         ghRec = GameHistory()

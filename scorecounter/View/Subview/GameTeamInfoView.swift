@@ -46,9 +46,11 @@ struct GameTeamInfoView: View {
                     Text("0")
                         .font(.system(size: 10))
                         .padding(.vertical, 5)
-                    Text("0")
+                    Text("5")
                         .font(.system(size: 10))
                         .padding(.vertical, 5)
+                    
+                    
                 }
                 VStack {
                     Text("Full")
@@ -57,9 +59,16 @@ struct GameTeamInfoView: View {
                     Text("0")
                         .font(.system(size: 10))
                         .padding(.vertical, 5)
-                    Text("5")
-                        .font(.system(size: 10))
-                        .padding(.vertical, 5)
+                    if team == .HOME {
+                        Text("\(firebase.game.home.fouls)")
+                            .font(.system(size: 10))
+                            .padding(.vertical, 5)
+                    }
+                    if team == .AWAY {
+                        Text("\(firebase.game.away.fouls)")
+                            .font(.system(size: 10))
+                            .padding(.vertical, 5)
+                    }
                 }
             }
         }
